@@ -80,3 +80,29 @@ form.addEventListener('submit', e => {
 
 const buscarFuncionarioPorNome = nome => funcionarios.find(func => func.getNome() === nome);
 
+const resultadoRelatorio = document.getElementById('resultadoRelatorio');
+
+document.getElementById('relatorioSalarioAlto').onclick = () => {
+    const filtrados = funcionarios.filter(func => func.getSalario() > 5000);
+    resultadoRelatorio.innerHTML = filtrados.map(func => func.toString()).join('<br>');
+};
+
+document.getElementById('relatorioMediaSalarial').onclick = () => {
+    if (funcionarios.length === 0) {
+        resultadoRelatorio.textContent = 'Nenhum funcionário cadastrado.';
+        return;
+    }
+    const soma = funcionarios.reduce((acc, func) => acc + func.getSalario(), 0);
+    const media = soma / funcionarios.length;
+    resultadoRelatorio.textContent = `Média salarial: R$ ${media.toFixed(2)}`;
+};
+
+document.getElementById('relatorioCargosUnicos').onclick = () => {
+    const cargos = [...new Set(funcionarios.map(func => func.getCargo()))];
+    resultadoRelatorio.innerHTML = cargos.join('<br>');
+};
+
+document.getElementById('relatorioNomesMaiusculo').onclick = () => {
+    const nomes = funcionarios.map(func => func.getNome().toUpperCase());
+    resultadoRelatorio.innerHTML = nomes.join('<br>');
+};

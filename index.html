@@ -1,10 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<h2>Cadastro de Funcionários</h2>
+
+<form id="formFuncionario">
+    <label>Nome:</label><br>
+    <input type="text" id="nome" required><br>
+    <label>Idade:</label><br>
+    <input type="number" id="idade" required><br>
+    <label>Cargo:</label><br>
+    <input type="text" id="cargo" required><br>
+    <label>Salário:</label><br>
+    <input type="number" id="salario" required><br>
+    <button type="submit">Cadastrar</button>
+</form>
+
+<h2>Lista de Funcionários</h2>
+<table id="tabelaFuncionarios">
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>Cargo</th>
+        <th>Salário</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script src="index.js"></script>
+
 </body>
 </html>
